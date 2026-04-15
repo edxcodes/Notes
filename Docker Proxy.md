@@ -3,8 +3,17 @@
 
 ```
 systemctl --user edit docker.service
-# 以上默认使用 nano 编辑，可选择使用 vim 编辑
-EDITOR=vim systemctl --user edit docker.service
+EDITOR=vim systemctl --user edit docker.service # 二选一
+```
+
+# 在配置中输入代理
+
+```
+[Service]
+Environment="HTTP_PROXY=http://a00123123:12345678@proxyhk.huawei.com:8080"
+Environment="HTTPS_PROXY=http://a00123123:12345678@proxyhk.huawei.com:8080"
+Environment="NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com"
+
 ```
 
 # 重启并确认代理已正确配置
